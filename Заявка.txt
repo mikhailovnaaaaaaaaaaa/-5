@@ -1,0 +1,69 @@
+Page x:Class="Экзамен.Info.Заявка"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Экзамен.Info"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      Title="Заявка" Width="972">
+
+    <Grid Margin="0,0,-35,0">
+        <StackPanel Orientation="Vertical" Margin="10,14,160,284">
+            <DataGrid IsReadOnly="True" x:Name="flightDataDataGrid" Margin="10,10,10,308" AutoGenerateColumns="False" Height="87" Width="612">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Пользователь"/>
+                    <DataGridTextColumn Header="Модель" />
+                    <DataGridTextColumn Header="Телефон клиента" />
+                    <DataGridTextColumn Header="Тип неисправности"/>
+                    <DataGridTextColumn Header="Вид оборудования"/>
+                    <DataGridTextColumn Header="Описание проблемы"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="10,147,10,10">
+
+            <Label Content="Подача заявки" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Модель" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Margin="0,5"/>
+                <TextBox FontFamily="Segoe UI" FontSize="14" x:Name="txtMODEL" Width="200" Grid.Row="1" Grid.Column="0" Margin="0,5"/>
+
+                <Label Content="Номер телефона" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Grid.Row="0" Grid.Column="1" Margin="0,5"/>
+                <TextBox FontFamily="Segoe UI" FontSize="14" x:Name="txtTEL" Width="200" Grid.Row="1" Grid.Column="1" Margin="0,5"/>
+
+                <Label Content="Тип неисправности" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Margin="0,5"/>
+                <TextBox FontFamily="Segoe UI" FontSize="14" x:Name="txtTIP" Width="200" Grid.Row="3" Grid.Column="0" Margin="0,5"/>
+
+                <Label Content="Вид оборудования" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Margin="0,5"/>
+                <TextBox FontFamily="Segoe UI" FontSize="14" x:Name="txtVID" Width="200" Grid.Row="3" Grid.Column="1" Margin="0,5"/>
+
+                <Label Content="Описание проблемы" FontFamily="Segoe UI" FontSize="16" FontWeight="Bold" Grid.Row="4" Grid.Column="0" Margin="0,5"/>
+                <TextBox FontFamily="Segoe UI" FontSize="14" x:Name="txtPROBLEMA" Width="200" Grid.Row="5" Grid.Column="0" Margin="0,5"/>
+
+
+
+
+                <Button x:Name="Button1" Content="Подать заявку" FontSize="16" BorderBrush="Black"  Grid.Column="1" Margin="65,35,38,-5" Grid.RowSpan="2" Grid.Row="4" Background="#FFE2C7C7"/>
+                <Button  x:Name="btnExit" Content="Главное меню" Grid.Column="2" Margin="128,-157,22,156"  Background="#FFE9CACA" FontSize="16" Click="btnExit_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+
+</Page>

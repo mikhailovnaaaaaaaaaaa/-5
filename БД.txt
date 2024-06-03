@@ -1,0 +1,90 @@
+CREATE DATABASE КомендантОбщежития
+
+GO
+
+USE КомендантОбщежития
+
+GO
+
+CREATE TABLE Комендант (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+Логин NVARCHAR(max),
+Пароль NVARCHAR(max),
+ФИО NVARCHAR(max)
+)
+GO
+
+CREATE TABLE Группа (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+Наименование NVARCHAR(max)
+)
+GO
+
+CREATE TABLE Гражданство (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+Наименование NVARCHAR(max)
+)
+GO
+
+CREATE TABLE ВидНаЖительство (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+Номер NUMERIC,
+ДатаВыдачи DATE,
+ДатаОкончания DATE
+)
+GO
+
+CREATE TABLE Проживающий (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+ФИО NVARCHAR(max),
+КодГражданство INT,
+НомерТелефона NVARCHAR(max),
+CONSTRAINT FK_Проживающий_Гражданство FOREIGN KEY (КодГражданство)
+REFERENCES Гражданство(Код)
+)
+GO
+
+CREATE TABLE Паспорт (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+Серия NVARCHAR(max),
+Номер NVARCHAR(max),
+ДатаРождения DATE,
+АдресРегистрации NVARCHAR(max),
+КодГражданство INT,
+CONSTRAINT FK_Паспорт_Гражданство FOREIGN KEY (КодГражданство)
+REFERENCES Гражданство(Код)
+)
+GO
+
+CREATE TABLE ИностранныйПаспорт (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+Серия NVARCHAR(max),
+Номер NVARCHAR(max),
+ДатаРождения DATE,
+АдресРегистрации NVARCHAR(max),
+КодГражданство INT,
+КодВидНаЖительство INT,
+CONSTRAINT FK_ИностранныйПаспорт_Гражданство FOREIGN KEY (КодГражданство)
+REFERENCES Гражданство(Код),
+CONSTRAINT FK_ИностранныйПаспорт_ВидНаЖительство FOREIGN KEY (КодВидНаЖительство)
+REFERENCES ВидНаЖительство(Код)
+)
+GO
+
+CREATE TABLE ДанныеСтудента (
+Код INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+ДатаЗаселения DATE,
+ДатаВыселения DATE,
+Куратор NVARCHAR(max),
+Комната NUMERIC,
+КодПроживающий INT,
+КодГруппа INT,
+КодКомендант INT,
+CONSTRAINT FK_ДанныеСтудента_Проживающий FOREIGN KEY (КодПроживающий)
+REFERENCES Проживающий(Код),
+CONSTRAINT FK_ДанныеСтудента_Группа FOREIGN KEY (КодГруппа)
+REFERENCES Группа(Код),
+CONSTRAINT FK_ДанныеСтудента_Комендант FOREIGN KEY (КодКомендант)
+REFERENCES Комендант(Код)
+)
+GO

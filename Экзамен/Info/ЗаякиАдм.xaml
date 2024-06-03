@@ -1,0 +1,28 @@
+﻿<Page x:Class="Экзамен.Info.ЗаякиАдм"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Экзамен.Info"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      Title="ЗаякиАдм" Width="1158">
+
+    <Grid Margin="0,0,-328,0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <DataGrid IsReadOnly="True" x:Name="flightDataDataGrid" Margin="248,74,641,198" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Сотрудник" />
+                <DataGridTextColumn Header="Модель" />
+                <DataGridTextColumn Header="Телефон клиента" />
+                <DataGridTextColumn Header="Тип неисправности" />
+                <DataGridTextColumn Header="Вид оборудования" />
+                <DataGridTextColumn Header="Описание проблемы" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnExit" Content="Назад" Margin="36,74,1264,343"  Background="#FFE2BEBE" Click="btnExit_Click" /> 
+    </Grid>
+</Page>
